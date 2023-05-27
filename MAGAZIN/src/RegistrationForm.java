@@ -20,6 +20,28 @@ public class RegistrationForm extends JDialog{
     private JLabel PRENUME;
     private JPanel registerPanel;
 
+    public JTextField getTfNUME_UTILIZATOR(){
+        return tfNUME_UTILIZATOR;
+    }
+    public JTextField getTfNUME(){
+        return tfNUME;
+    }
+    public JTextField getTfPRENUME(){
+        return tfPRENUME;
+    }
+    public JTextField getTfADRESA(){
+        return tfADRESA;
+    }
+    public JTextField getTfNR_TELEFON(){
+        return tfNR_TELEFON;
+    }
+    public JPasswordField getTfPAROLA(){
+        return tfPAROLA;
+    }
+    public JPasswordField getTfCONFIRMA_PAROLA(){
+        return tfCONFIRMA_PAROLA;
+    }
+
     public RegistrationForm(JFrame parent){
         super(parent);
         setTitle("Create a new account");
@@ -30,13 +52,12 @@ public class RegistrationForm extends JDialog{
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 
         btnRegister.addActionListener(new ActionListener() {
-            @Override
+
             public void actionPerformed(ActionEvent e) {
                 registerUser();
             }
         });
         btnCancel.addActionListener(new ActionListener() {
-            @Override
             public void actionPerformed(ActionEvent e) {
                 dispose();
             }
@@ -44,7 +65,7 @@ public class RegistrationForm extends JDialog{
         setVisible(true);
     }
 
-    private void registerUser() {
+    public void registerUser() {
         String nume_utilizator = tfNUME_UTILIZATOR.getText();
         String parola = String.valueOf(tfPAROLA.getPassword());
         String confirma_parola = String.valueOf(tfCONFIRMA_PAROLA.getPassword());
@@ -74,7 +95,7 @@ public class RegistrationForm extends JDialog{
     public User user;
     private User addUserToDatabase(String numeUtilizator, String parola, String confirmaParola, String nume, String prenume, String adresa, String nrTelefon) {
         User user = null;
-        final String DB_URL = "jdbc:mysql://localhost/MyStore?serverTimezone=UTC";
+        final String DB_URL = "jdbc:mysql://localhost/mybd?serverTimezone=UTC";
         final String USERNAME = "root";
         final String PASSWORD = "";
 
@@ -114,6 +135,7 @@ public class RegistrationForm extends JDialog{
         }
         return user;
     }
+
 
     public static void main(String[] args) {
 
