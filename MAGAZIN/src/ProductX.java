@@ -1,4 +1,4 @@
-public class Product {
+public class ProductX {
     private String productName;
     private String category;
     private String size;
@@ -7,7 +7,7 @@ public class Product {
     private String condition;
     private String description;
 
-    public Product(String productName, String category, String size, String color, String material, String condition, String description) {
+    public ProductX(String productName, String category, String size, String color, String material, String condition, String description) {
         this.productName = productName;
         this.category = category;
         this.size = size;
@@ -18,7 +18,6 @@ public class Product {
     }
 
     // Getters and setters
-
     public String getProductName() {
         return productName;
     }
